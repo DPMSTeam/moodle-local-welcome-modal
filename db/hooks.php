@@ -15,9 +15,18 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Library functions for the Welcome Modal local plugin.
+ * Hook callbacks for local_welcome_modal.
  *
  * @package    local_welcome_modal
  * @copyright  2026 Dynamic Pixel Multimedia Solutions
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
+
+$callbacks = [
+    [
+        'hook' => \core\hook\output\before_standard_head_html_generation::class,
+        'callback' => \local_welcome_modal\hook_callbacks::class . '::before_standard_head_html_generation',
+    ],
+];
